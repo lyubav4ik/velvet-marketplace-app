@@ -2,20 +2,34 @@
 	var isEdit = false;
 	try { isEdit = window.BX && window.BX.Landing && typeof window.BX.Landing.getMode === 'function' && window.BX.Landing.getMode() === 'edit'; } catch (e) {}
 	if (isEdit) return;
-	function catalogBase() {
+	var CANDIDATES = ['katalog', 'catalog', 'shop'];
+	function collectCatalogBase() {
 		var best = null, bestDepth = 99, seen = {};
 		Array.prototype.forEach.call(document.querySelectorAll('a[href]'), function (a) {
-			var m = (a.getAttribute('href') || '').match(/^\/?(katalog|catalog|shop)(?:\/|$)/i);
+			var u;
+			try { u = new URL(a.getAttribute('href') || '', location.href); } catch (e) { return; }
+			if (u.origin !== location.origin) return;
+			var m = u.pathname.match(/^\/(katalog|catalog|shop)(?:\/|$)/i);
 			if (!m) return;
 			var seg = m[1].toLowerCase();
 			if (seen[seg]) return;
 			seen[seg] = true;
-			var path = '';
-			try { path = new URL(a.href, location.href).pathname; } catch (e) {}
-			var d = path.split('/').filter(Boolean).length || 1;
-			if (d < bestDepth) { bestDepth = d; best = '/' + seg + '/'; }
+			var depth = u.pathname.split('/').filter(Boolean).length || 1;
+			if (depth < bestDepth) { bestDepth = depth; best = '/' + seg + '/'; }
 		});
-		return best || '/catalog/';
+		return best || '';
+	}
+	function probe(path) {
+		return fetch(location.origin + path, { method: 'HEAD' }).then(function (r) { return r.ok ? path : null; }).catch(function () { return null; });
+	}
+	function resolveCatalog() {
+		var found = collectCatalogBase();
+		if (found) return Promise.resolve(found);
+		var chain = Promise.resolve(null);
+		CANDIDATES.forEach(function (seg) {
+			chain = chain.then(function (res) { return res || probe('/' + seg + '/'); });
+		});
+		return chain.then(function (res) { return res || '/katalog/'; });
 	}
 	function setup(h) {
 		if (h.dataset.vlInit) return;
@@ -35,8 +49,9 @@
 				if (e.key !== 'Enter') return;
 				e.preventDefault();
 				var q = (input.value || '').trim();
-				if (!q) return;
-				window.location.href = catalogBase() + '?q=' + encodeURIComponent(q);
+				resolveCatalog().then(function (base) {
+					window.location.href = base + '?q=' + encodeURIComponent(q);
+				});
 			});
 		}
 	}
