@@ -65,10 +65,17 @@ GET/POST без параметров → список зарегистриров
 8. **Хостинг статики блока:** публичный GitHub-репозиторий `lyubav4ik/velvet-marketplace-app` + jsDelivr CDN (`https://cdn.jsdelivr.net/gh/lyubav4ik/velvet-marketplace-app@main/assets/...`). Обновление ассетов = git push (jsDelivr подтягивает @main, кэш пару минут). Сервер не нужен.
 
 ## Итоговый пайплайн нового блока
-1. HTML контента: только разрешённые теги; ноды `.landing-block-node-*`; карточки с `data-card-preset="link"`.
-2. CSS → `assets/*.css`, JS → `assets/*.js` в репо приложения, git push.
-3. manifest: block{type:["page","store"]}, nodes{text/link}, cards{preset:"link"}, assets{css[],js[]}.
-4. `landing.repo.checkcontent` перед регистрацией → затем `landing.repo.register`. Повторный вызов с тем же code обновляет блок.
-5. Проверка: `landing.repo.getList`.
+1. HTML контента: только разрешённые теги; ноды `.landing-block-node-*`; карточки `.landing-block-card-*`.
+2. CSS → `assets/*.css`, JS → `assets/*.js` в репо приложения, git push (+ purge.jsdelivr.net для мгновенного обновления).
+3. manifest: block{type:["page","store"]}, nodes{text/link/img}, cards{preset:"link"}, assets{css[],js[]}.
+4. `landing.repo.checkcontent {content:...}` (параметр top-level, НЕ внутри fields!) перед регистрацией → затем `landing.repo.register`. Повторный вызов с тем же code обновляет блок; добавить `RESET:'Y'` — обновятся уже добавленные на страницы экземпляры.
+5. Проверка: `landing.repo.getList` (возвращает строки с ID/XML_ID/SECTIONS/MANIFEST).
 
-Зарегистрировано: `vl-maison-header` (id=2) — шапка MAISON: меню слева, лого по центру, иконки поиска/кабинета/корзины справа, бургер на мобиле, «Ещё ▾» при переполнении меню. JS в редакторе отключается (проверка BX.Landing.getMode).
+## Грабли v2 (сессия фиксов шапки, 22.08.2026)
+9. **Коды секций** — не выдумывать: получить через `landing.block.getrepository` (ответ = дерево, ключи верхнего уровня = коды секций: menu=«Меню и шапка сайта», cover, text, footer, about и т.д.). Секция задаётся строкой в `fields.SECTIONS` + массивом в `manifest.block.section`.
+10. **JS ломал редактируемость**: скрипт двигал DOM (переносил li в «Ещё») ДО привязки нод редактором — элементы становились нередактируемыми. Лечение: ранний выход `if (isEdit) return;` в самом начале IIFE + никаких DOM-мутаций вообще.
+11. **Картинки-ноды**: тип `'img'` (`{"name":"Логотип","type":"img","dimensions":{"maxWidth":360,"maxHeight":140}}`) — даёт окно загрузки файла. Дефолтная картинка кладётся в репо и подключается по CDN.
+12. **jsDelivr кэширует агрессивно**: после git push дергать `https://purge.jsdelivr.net/gh/<repo>@main/<path>`, потом проверять содержимое по маркерам новой версии (может потребоваться повторный пурж).
+13. **Переполнение меню** — вместо JS-коллапса («Ещё») чистый CSS: лого абсолютно центрирован (`pointer-events:none` на зоне + auto на ссылке), меню `max-width:calc(50% - 150px)` + `ul{flex-wrap:wrap}` — пункты переносятся на вторую строку и никогда не наезжают на лого, работает даже без JS в редакторе.
+
+Зарегистрировано: `vl-maison-header` (id=2) — шапка MAISON v3: меню слева (карточки, перенос на 2-ю строку), лого-картинка по центру (нода img), поиск/кабинет/корзина справа, бургер на мобиле, поиск ведёт в корень каталога (/katalog/, /catalog/ или /shop/ — автоопределение по минимальной глубине пути).
