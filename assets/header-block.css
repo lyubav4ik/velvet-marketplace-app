@@ -2,7 +2,7 @@
 .vl-header *,.vl-header *::before,.vl-header *::after{box-sizing:border-box;margin:0;padding:0}
 .vl-header{position:sticky;top:0;z-index:100;background:#f9f9f9;border-bottom:1px solid rgba(17,17,17,.08);font-family:'Montserrat',Arial,sans-serif;color:#111;transition:background .3s ease,box-shadow .3s ease}
 .vl-header.vl-scrolled{background:rgba(249,249,249,.94);backdrop-filter:blur(10px);box-shadow:0 4px 24px rgba(0,0,0,.06)}
-.vl-bar{position:relative;max-width:1440px;margin:0 auto;display:flex;align-items:center;flex-wrap:wrap;min-height:80px;padding:8px 16px;transition:min-height .3s ease,padding .3s ease}
+.vl-bar{position:relative;max-width:1440px;margin:0 auto;display:flex;align-items:center;min-height:80px;padding:8px 16px;transition:min-height .3s ease}
 @media(min-width:768px){.vl-bar{padding-top:0;padding-bottom:0;padding-left:64px;padding-right:64px}}
 .vl-header.vl-scrolled .vl-bar{min-height:64px}
 .vl-burger{order:0;display:none;width:40px;height:40px;border:0;background:transparent;cursor:pointer;position:relative;flex:0 0 auto}
@@ -12,14 +12,12 @@
 .vl-open .vl-burger span:nth-child(2){opacity:0}
 .vl-open .vl-burger span:nth-child(3){top:20px;transform:rotate(-45deg)}
 .vl-nav{order:1;display:flex;flex:1 1 auto;min-width:0}
-@media(min-width:768px){.vl-nav{max-width:calc(50% - 150px)}}
-.vl-menu-list{display:flex;flex-wrap:wrap;align-items:center;row-gap:2px;column-gap:32px;list-style:none;min-width:0}
-.vl-logo-zone{order:2;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none}
-.vl-logo-zone a{pointer-events:auto}
-.vl-logo-link{text-decoration:none;color:inherit;display:block}
-.vl-logo-img{display:block;height:clamp(30px,3.4vw,44px);width:auto;max-width:min(300px,34vw);object-fit:contain;transition:height .3s ease,opacity .3s ease}
+.vl-menu-list{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;width:100%;row-gap:10px;column-gap:24px;list-style:none;min-width:0}
+.vl-logo-zone{order:2;flex:0 0 auto;margin-left:40px;display:flex;align-items:center}
+.vl-logo-link{text-decoration:none;color:inherit;display:block;line-height:0}
+.vl-logo-img{display:block;height:clamp(30px,3.4vw,44px);width:auto;max-width:300px;object-fit:contain;transition:height .3s ease}
 .vl-header.vl-scrolled .vl-logo-img{height:clamp(26px,2.6vw,34px)}
-.vl-right{order:3;margin-left:auto;display:flex;justify-content:flex-end;align-items:center;gap:6px;flex:0 0 auto}
+.vl-right{order:3;flex:0 0 auto;margin-left:28px;display:flex;justify-content:flex-end;align-items:center;gap:6px}
 .vl-menu-link{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#5f5e5d;text-decoration:none;padding:4px 0;position:relative;background:none;border:0;cursor:pointer;font-family:inherit;white-space:nowrap;transition:color .25s ease}
 .vl-menu-link::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;background:#111;transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
 .vl-menu-link:hover{color:#111}.vl-menu-link:hover::after{transform:scaleX(1)}
@@ -34,11 +32,13 @@
 .vl-burger{display:block}
 .vl-nav{position:absolute;top:100%;left:0;right:0;background:#f9f9f9;border-top:1px solid rgba(17,17,17,.08);max-height:0;overflow:hidden;overflow-y:auto;transition:max-height .35s ease;z-index:110}
 .vl-open .vl-nav{max-height:72vh;border-bottom:1px solid rgba(17,17,17,.08)}
-.vl-menu-list{flex-direction:column;align-items:stretch;gap:0;padding:8px 16px}
+.vl-menu-list{flex-direction:column;align-items:stretch;gap:0;padding:8px 16px;justify-content:flex-start}
 .vl-menu-item{border-bottom:1px solid rgba(17,17,17,.06)}
 .vl-menu-item:last-child{border-bottom:0}
 .vl-menu-link{display:block;padding:15px 2px;font-size:13px}
 .vl-menu-link::after{display:none}
-.vl-logo-img{max-width:44vw;height:auto;max-height:30px}
+.vl-logo-zone{margin-left:12px}
+.vl-right{margin-left:auto}
+.vl-logo-img{height:auto;max-height:30px;max-width:44vw}
 }
 @media(prefers-reduced-motion:reduce){.vl-header *{transition:none!important}}
