@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Playfair+Display:wght@700&display=swap');
 .vl-header *,.vl-header *::before,.vl-header *::after{box-sizing:border-box;margin:0;padding:0}
 .vl-header{position:sticky!important;top:0;z-index:100;transition:background .3s ease,box-shadow .3s ease}
+:where(.vl-header){background:#f9f9f9}
 .vl-header.vl-scrolled{background:rgba(249,249,249,.94)!important;backdrop-filter:blur(10px);box-shadow:0 4px 24px rgba(0,0,0,.06)}
 .vl-burger span{position:absolute;left:10px;right:10px;height:1.5px;background:#111;border-radius:2px;transition:transform .3s ease,top .3s ease,opacity .25s ease}
 .vl-burger span:nth-child(1){top:14px}.vl-burger span:nth-child(2){top:20px}.vl-burger span:nth-child(3){top:26px}
