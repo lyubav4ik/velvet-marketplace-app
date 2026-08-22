@@ -9,8 +9,9 @@
 .vl-open .vl-burger span:nth-child(2){opacity:0}
 .vl-open .vl-burger span:nth-child(3){top:20px!important;transform:rotate(-45deg)}
 .vl-header.vl-scrolled .vl-bar{min-height:64px!important}
-.vl-menu-link::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;background:#111;transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
-.vl-menu-link:hover{color:#111!important}.vl-menu-link:hover::after{transform:scaleX(1)}
+.vl-header .vl-menu-link{font-family:inherit;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#5f5e5d;text-decoration:none;transition:color .18s ease,opacity .18s ease}
+.vl-menu-link::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.vl-menu-link:hover::after{transform:scaleX(1)}
 .vl-icon-btn:hover{background:#eeeeee}.vl-icon-btn:active{transform:scale(.92)}
 .vl-icon-btn i{font-size:18px;line-height:1}
 .vl-search.open .vl-search-input{width:170px!important;opacity:1!important;margin-right:4px}
@@ -26,7 +27,8 @@
 .vl-menu-list{flex-direction:column!important;align-items:stretch!important;row-gap:0!important;column-gap:0!important;padding:8px 16px}
 .vl-menu-item{border-bottom:1px solid rgba(17,17,17,.06);justify-content:flex-start!important}
 .vl-menu-item:last-child{border-bottom:0}
-.vl-menu-link{display:block;padding:15px 2px!important;font-size:13px!important}
+.vl-menu-link{display:block;padding:15px 2px!important}
+.vl-header .vl-menu-link{font-size:13px}
 .vl-menu-link::after{display:none}
 .vl-logo-zone{margin-left:12px!important}
 .vl-right{margin-left:auto!important}
