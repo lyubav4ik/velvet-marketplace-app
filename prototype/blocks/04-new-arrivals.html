@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Блок 4 — Новые поступления</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#1a1c1c",
+                    "primary": "#111111",
+                    "on-error": "#ffffff",
+                    "surface-bright": "#f9f9f9",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-tertiary-container": "#ad8475",
+                    "on-secondary-fixed-variant": "#474745",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#f0f1f1",
+                    "on-secondary-fixed": "#1b1c1b",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#c4c7c7",
+                    "outline": "#747878",
+                    "secondary-container": "#e2dfdd",
+                    "on-primary-container": "#8e8d8c",
+                    "inverse-primary": "#c8c6c5",
+                    "on-surface-variant": "#444748",
+                    "tertiary-container": "#3a1f15",
+                    "error-container": "#ffdad6",
+                    "surface": "#f9f9f9",
+                    "inverse-surface": "#2f3131",
+                    "on-primary-fixed": "#1b1c1c",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed": "#ffdbcf",
+                    "on-primary-fixed-variant": "#474746",
+                    "primary-container": "#262626",
+                    "on-tertiary-fixed": "#2e150b",
+                    "error": "#ba1a1a",
+                    "surface-tint": "#5f5e5e",
+                    "on-secondary-container": "#636261",
+                    "tertiary": "#220b04",
+                    "secondary-fixed": "#e5e2e0",
+                    "primary-fixed": "#e4e2e1",
+                    "surface-container": "#eeeeee",
+                    "surface-dim": "#dadada",
+                    "on-tertiary-fixed-variant": "#603f33",
+                    "surface-container-high": "#e8e8e8",
+                    "secondary-fixed-dim": "#c8c6c4",
+                    "background": "#f9f9f9",
+                    "secondary": "#5f5e5d",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "on-surface": "#1a1c1c",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e2e2e2",
+                    "surface-container-low": "#f3f3f4",
+                    "tertiary-fixed-dim": "#ebbcac"
+            },
+            "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+            "spacing": { "unit": "8px", "container-max": "1440px", "gutter": "24px", "margin-mobile": "16px", "margin-desktop": "64px" },
+            "fontFamily": {
+                    "display-lg": ["Playfair Display"],
+                    "label-caps": ["Montserrat"],
+                    "headline-sm": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "body-lg": ["Montserrat"],
+                    "body-md": ["Montserrat"],
+                    "button": ["Montserrat"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                    "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                    "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                    "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                    "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                    "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                    "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                    "button": ["14px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #f9f9f9; color: #1a1c1c; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="antialiased">
+<!-- БЛОК 4: НОВЫЕ ПОСТУПЛЕНИЯ (карточки товаров) -->
+<section class="py-[80px] bg-surface-bright">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mb-12 flex justify-between items-end fade-in">
+<div>
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-2">Новые поступления</h2>
+<p class="font-body-md text-body-md text-secondary max-w-md">Откройте для себя последние тенденции сезона, воплощенные в безупречном крое.</p>
+</div>
+<a class="hidden md:inline-flex font-label-caps text-label-caps text-primary border-b border-primary pb-1 hover:text-secondary hover:border-secondary transition-colors" href="#">Смотреть все</a>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex overflow-x-auto md:grid md:grid-cols-4 gap-6 md:gap-gutter pb-8 hide-scrollbar snap-x snap-mandatory">
+<!-- Product Card 1 -->
+<div class="flex-none w-[280px] md:w-auto snap-start group fade-in">
+<div class="relative aspect-[3/4] bg-surface-container mb-4 overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-500 group-hover:opacity-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgPYROWQsX3UrexozQ7Ck3bPzH2CYJMKnKS_-h0CmTlLRfKC8ffUt_s9s8qJb7f6iDytyP9G-_uFsJIRNSr3LvtvWqju_oPvStAjD4JH9mU5tKuZEIO9WmaaTU0fHppCvaFTS7Ha-myQ8kS-JeLrOM7IMYuqQRHr1gwb6api8JvXDW5GFc34LQewkhVYSBWj5QtZZsVYsWrBTtP0z95g-jBYqWDA7s8SIcaqUC4kWnBy-IdV-X1exo"/>
+<img class="absolute inset-0 w-full h-full object-cover object-center opacity-0 transition-opacity duration-500 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_1YDUR88iHTw-NSndiquZrfkN-GegjyZNy6fLDvONoCgc11b8ENb-busdYi4GEtMvDl2ZAIVhWC3PONiGL_4Q462apH8anLG-KP0E05OyNUq908ZbgJwfEx4piyuBExo4EYcCcUraU_-5Z2hLPMoghYFULlMq-nkwgUTlHjbkdggfwhnuzWXIadvY5QtoMBIyQ0tz_GDEaEL4W-QU3j6eIhmuGKfkXgy8wZIlTF7MHb0BIxVWvtfb"/>
+<button aria-label="Add to wishlist" class="absolute bottom-4 right-4 w-10 h-10 bg-surface rounded-full flex items-center justify-center shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-secondary-container">
+<span class="material-symbols-outlined text-primary text-lg">favorite</span>
+</button>
+</div>
+<h3 class="font-headline-sm text-body-lg text-primary mb-1">Жакет оверсайз</h3>
+<p class="font-body-md text-body-md text-secondary">32 000 ₽</p>
+</div>
+<!-- Product Card 2 -->
+<div class="flex-none w-[280px] md:w-auto snap-start group fade-in" style="transition-delay: 100ms;">
+<div class="relative aspect-[3/4] bg-surface-container mb-4 overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-500 group-hover:opacity-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC4-XblRR5_swy9rs-9QivMzuQnXFv4vrCXmoeE2wSJP48DtynpLMCPWp4v7wbwtymsHGU92mY3REpeiT4RCupF7KU-F6Z2Ix8GXhbwyXoUsWu-mmUlIDoHgTTWmo73lFYOxgVHpy4WaBNb4BmhyvPB-5nDp2lYO2wgkQVNNlwJHd-Nj-yHUouBLxgxJh8d5Sxd-sS_fkyDoV-_of0eCedS84pD9d7O6wJmMSJEob42GkHbUjA_OlH"/>
+<img class="absolute inset-0 w-full h-full object-cover object-center opacity-0 transition-opacity duration-500 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz6kAZZdnMuekUECm2ctY9sGUposlxMHidMZCtG9yJQXJ5hA2YmBt_fBfwSYmusGUPrsSCl509Q6WpbqXyXQ52RJQo-olpXp3sTZri0JWrnNIrhH-lQDephevN43D-YNEzX_DQwdAQy2W21ON_rtDF8J5ZHdIaHcPMPycjE_JnbYfwKnvYHVnMKQ_LmrlFgOC-gubmEopbZn_uP7iwo_c7oJVp2tVdyV7FvUVhgUkRtXDdlyS7_sI1"/>
+<button aria-label="Add to wishlist" class="absolute bottom-4 right-4 w-10 h-10 bg-surface rounded-full flex items-center justify-center shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-secondary-container">
+<span class="material-symbols-outlined text-primary text-lg">favorite</span>
+</button>
+</div>
+<h3 class="font-headline-sm text-body-lg text-primary mb-1">Шелковая водолазка</h3>
+<p class="font-body-md text-body-md text-secondary">18 500 ₽</p>
+</div>
+<!-- Product Card 3 -->
+<div class="flex-none w-[280px] md:w-auto snap-start group fade-in" style="transition-delay: 200ms;">
+<div class="relative aspect-[3/4] bg-surface-container mb-4 overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-500 group-hover:opacity-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr9DjyPwjb9Uupoq5tqSOhBzRujG4-Qi2FUNTJ6tQq9GVn4usqIPGPkQIgdjwMrVsVM1fOzl-kY5MZoGT0cWktoxCQMzcwSnFxKQKGCFOtUZDZecpzsAWbUOK7r6NWPxuUX6UgBFW0bQV-KOAad5Qj6ImUrwK341YQjicRGE4mwd_DKZS6rG_nLj8HJpuEXL58PijMwdBdnHFzMTKd7FfZM7j4vyNXTZVAOF4Aj18xc7qrCuQVQbYW"/>
+<img class="absolute inset-0 w-full h-full object-cover object-center opacity-0 transition-opacity duration-500 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyHrzEuiCbI-oSc_vE4D2TW5yDmtzdyrVcqRbXq0eEQ9IvMhGQA8E7pNxYo6arb_Wx5GaBpdiNU_I0pT8ST6jrJMRrDmuT3GRnTEnPRt9led3xFFvTEYS5y80MTqWZLETq3WvoOgjcj8N05f60KpjstESKYztXUUi6m865tw_sLY9V--WO7-B6nQBPAj9-PmWldymGuKP0YVt-bc6GeWg_objwbDo9nPT3jx-Vi1ylo04aF6E5Qa0z"/>
+<button aria-label="Add to wishlist" class="absolute bottom-4 right-4 w-10 h-10 bg-surface rounded-full flex items-center justify-center shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-secondary-container">
+<span class="material-symbols-outlined text-primary text-lg">favorite</span>
+</button>
+</div>
+<h3 class="font-headline-sm text-body-lg text-primary mb-1">Брюки палаццо</h3>
+<p class="font-body-md text-body-md text-secondary">24 000 ₽</p>
+</div>
+<!-- Product Card 4 -->
+<div class="flex-none w-[280px] md:w-auto snap-start group fade-in" style="transition-delay: 300ms;">
+<div class="relative aspect-[3/4] bg-surface-container mb-4 overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-500 group-hover:opacity-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBV08cfe-EIs-8BK8W9ob5YruvKIPcEKCownj-3rke4aq06Nt8F7HbwRP28IjQgnPNF8FZqxaRVV3VLGSwd4tvkqfAVOUXGqrGApYhZjZVARGq-vxSpJmglfsgNUW6TVmASCUvQlS_vOZXymMfXxh7o4AIcC5Fg6NMi75_x_9fZd-ruGomZH9VzXiisXKHGOEg9-_Yh6PPq7C9B0X8bCsYQRhIOG1Ca2_UY5x9UJpqHE15HewiqKDrF"/>
+<img class="absolute inset-0 w-full h-full object-cover object-center opacity-0 transition-opacity duration-500 group-hover:opacity-100" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-EXqUN0NWJCGnSYqjQXQrIfvCAhIEVp0jJEdWDftTKHVp0NpdGTrYO50GTQDNwt9jF4MU4D8Bb4nxEJX7hJE-g1UWiVeWnaoxo2hM1WMb1oDdB9Voij7EBz3lTeZYmX5S97MzVDmuPHLnKObVm5-Lr4-cWiRNEq-J-mcEnEo-7nbcvtl6vqm6pmFQfmf0NH4sWiVZN8qKTGDotIk788ZD0LOHH4Q-v9s-4ewHjcPpjUkI2jkBakx1"/>
+<button aria-label="Add to wishlist" class="absolute bottom-4 right-4 w-10 h-10 bg-surface rounded-full flex items-center justify-center shadow-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-secondary-container">
+<span class="material-symbols-outlined text-primary text-lg">favorite</span>
+</button>
+</div>
+<h3 class="font-headline-sm text-body-lg text-primary mb-1">Сумка из кожи</h3>
+<p class="font-body-md text-body-md text-secondary">45 000 ₽</p>
+</div>
+</div>
+<div class="mt-8 text-center md:hidden">
+<a class="inline-block border border-outline text-primary font-button text-button px-8 py-3 uppercase tracking-wider hover:bg-surface-variant transition-colors" href="#">Смотреть все</a>
+</div>
+</div>
+</section>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) { entry.target.classList.add('visible'); obs.unobserve(entry.target); }
+                });
+            }, { threshold: 0.15 });
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+    </script>
+</body></html>

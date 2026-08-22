@@ -1,0 +1,4 @@
+_session/
+node_modules/
+secrets.env
+*.local

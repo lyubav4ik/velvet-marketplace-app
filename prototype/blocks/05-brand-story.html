@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Блок 5 — О бренде</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-background": "#1a1c1c",
+                    "primary": "#111111",
+                    "on-error": "#ffffff",
+                    "surface-bright": "#f9f9f9",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-tertiary-container": "#ad8475",
+                    "on-secondary-fixed-variant": "#474745",
+                    "on-primary": "#ffffff",
+                    "inverse-on-surface": "#f0f1f1",
+                    "on-secondary-fixed": "#1b1c1b",
+                    "on-secondary": "#ffffff",
+                    "outline-variant": "#c4c7c7",
+                    "outline": "#747878",
+                    "secondary-container": "#e2dfdd",
+                    "on-primary-container": "#8e8d8c",
+                    "inverse-primary": "#c8c6c5",
+                    "on-surface-variant": "#444748",
+                    "tertiary-container": "#3a1f15",
+                    "error-container": "#ffdad6",
+                    "surface": "#f9f9f9",
+                    "inverse-surface": "#2f3131",
+                    "on-primary-fixed": "#1b1c1c",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-fixed": "#ffdbcf",
+                    "on-primary-fixed-variant": "#474746",
+                    "primary-container": "#262626",
+                    "on-tertiary-fixed": "#2e150b",
+                    "error": "#ba1a1a",
+                    "surface-tint": "#5f5e5e",
+                    "on-secondary-container": "#636261",
+                    "tertiary": "#220b04",
+                    "secondary-fixed": "#e5e2e0",
+                    "primary-fixed": "#e4e2e1",
+                    "surface-container": "#eeeeee",
+                    "surface-dim": "#dadada",
+                    "on-tertiary-fixed-variant": "#603f33",
+                    "surface-container-high": "#e8e8e8",
+                    "secondary-fixed-dim": "#c8c6c4",
+                    "background": "#f9f9f9",
+                    "secondary": "#5f5e5d",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "on-surface": "#1a1c1c",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e2e2e2",
+                    "surface-container-low": "#f3f3f4",
+                    "tertiary-fixed-dim": "#ebbcac"
+            },
+            "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+            "spacing": { "unit": "8px", "container-max": "1440px", "gutter": "24px", "margin-mobile": "16px", "margin-desktop": "64px" },
+            "fontFamily": {
+                    "display-lg": ["Playfair Display"],
+                    "label-caps": ["Montserrat"],
+                    "headline-sm": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "body-lg": ["Montserrat"],
+                    "body-md": ["Montserrat"],
+                    "button": ["Montserrat"]
+            },
+            "fontSize": {
+                    "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                    "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                    "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                    "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                    "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                    "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                    "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                    "button": ["14px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { background-color: #f9f9f9; color: #1a1c1c; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body class="antialiased">
+<!-- БЛОК 5: ИСТОРИЯ БРЕНДА (фото + текст) -->
+<section class="py-[80px] px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row items-center gap-12 md:gap-24">
+<div class="w-full md:w-1/2 fade-in">
+<img class="w-full h-auto object-cover rounded-sm shadow-sm aspect-[4/5]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBLldNjPjqFpzIGKoWmBU774T791mdaLqR-GosuZ047NnvAmcC1AW0KHO-7xwoVd7CC10I5JPto_iBHrHCdUj-C9y9LTMimH9lu_i2u5A4oNnPsSKS_fhxtb429Hf8K_JO_Kxrr-O-rnZWeXBvaZODtC26Y4sfhUYcWNU9-XAKXKQmPFrT1OsWWKkV5ml9cRaVytkQiFwwULG1CR6gTcx4UYwNizItzJdcBkn_cOjlPNag9YUU1Fsz"/>
+</div>
+<div class="w-full md:w-1/2 flex flex-col justify-center fade-in" style="transition-delay: 200ms;">
+<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-primary mb-6">Наш стиль</h2>
+<p class="font-body-lg text-body-lg text-secondary mb-8 max-w-lg leading-relaxed">
+                        Мы верим, что истинная элегантность кроется в простоте и безупречном качестве. MAISON создает одежду, которая не кричит о себе, а подчеркивает вашу индивидуальность.
+                        <br/><br/>
+                        Каждая вещь в нашей коллекции — это инвестиция в ваш гардероб, созданная из премиальных тканей с вниманием к мельчайшим деталям кроя.
+                    </p>
+<div>
+<a class="inline-flex items-center font-button text-button text-primary uppercase tracking-wider group" href="#">
+<span>О бренде</span>
+<span class="material-symbols-outlined ml-2 transform transition-transform group-hover:translate-x-2">trending_flat</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) { entry.target.classList.add('visible'); obs.unobserve(entry.target); }
+                });
+            }, { threshold: 0.15 });
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+    </script>
+</body></html>
