@@ -66,10 +66,10 @@
   }
 
   function getFirstImage(html) {
-    var re = /product-item-image-wrapper[\s\S]{0,800}?<img[^>]+(?:data-src|src)="([^"]+(?:jpe?g|png|webp)[^"]*)"/i;
-    var m = re.exec(html);
+    var m = /product-item-image-wrapper[\s\S]{0,1500}?url\((['"])(https?:\/\/[^'")]+?\.(?:jpe?g|png|webp)[^'")]*)\1/i.exec(html)
+         || /product-item-image-wrapper[\s\S]{0,1500}?<img[^>]+(?:data-src|src)="([^"]+(?:jpe?g|png|webp)[^"]*)"/i.exec(html);
     if (!m) return '';
-    var src = m[1];
+    var src = m[2] || m[1];
     if (src.indexOf('http') !== 0) src = src.indexOf('/') === 0 ? ORIGIN + src : ORIGIN + '/' + src;
     return src;
   }
