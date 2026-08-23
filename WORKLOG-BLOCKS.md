@@ -13,9 +13,27 @@
 | repo_7 | vl-maison-products | MAISON · Новые поступления | v0.20 | готов; статика + `#dynamic` товары из каталога |
 | repo_9 | vl-maison-story | MAISON · История бренда | v0.22 | готов; статика |
 | repo_11 | vl-maison-footer | MAISON · Футер | v0.24 | готов; ссылки добавляются карточками |
+| repo_13 | vl-maison-pcard | MAISON · Карточка товара | v0.27 | готов; миниатюры-карточки, клик меняет фото |
+| repo_15 | vl-maison-related | MAISON · С чем носить | v0.27 | готов; карточки товаров |
+| repo_17 | vl-maison-abhero | MAISON · Обложка страницы | v0.27 | готов; фон+заголовок+подзаголовок |
+| repo_19 | vl-maison-abstory | MAISON · История (текст+фото) | v0.27 | готов; rich-текст |
+| repo_21 | vl-maison-values | MAISON · Ценности | v0.27 | готов; 3 карточки, знак = текстовый глиф |
+| repo_23 | vl-maison-craft | MAISON · Мастерство | v0.27 | готов; фото+текст+кнопка |
+| repo_25 | vl-maison-contacts | MAISON · Контакты | v0.27 | готов; форма заменена карточкой консьержа (санитайзер режет form/input) |
+| repo_27 | vl-maison-mapimg | MAISON · Карта | v0.27 | готов; img + метка, цвет при наведении |
+| repo_29 | vl-maison-delivery | MAISON · Доставка | v0.27 | готов; 3 карточки способов |
+| repo_31 | vl-maison-returns | MAISON · Возврат | v0.27 | готов; 2 карточки условий + 3 этапа |
+| repo_33 | vl-maison-faq | MAISON · FAQ (аккордеон) | v0.27 | готов; вопрос/ответ карточками, JS-переключение |
+| repo_35 | vl-maison-article | MAISON · Текстовая страница | v0.27 | готов; rich-текст для политики и инфо-страниц |
 
-### В работе
-- **Страница «02-карточка товара»** — нарезки готовы: `prototype/pages/02-kartochka-tovara/block-01-product-card.html` (галерея+панель покупки) и `block-02-related-products.html` («С чем носить»). Ждут одобрения → регистрация как `vl-maison-product-card` и `vl-maison-related`. Интерактив (цвет/размер/корзина) в лендинг-блоке декоративный.
+### Сборка страниц из блоков
+Главная lid=3 — собрана (6 блоков). Остальные страницы собирает пользователь из реестра выше:
+- **02-карточка товара**: pcard + related
+- **05-о бренде**: abhero + abstory + values + craft
+- **06-контакты**: contacts + mapimg (+ штатная CRM-форма при желании)
+- **11-новинки**: cats + products
+- **12-FAQ**: faq (несколько копий под разделы)
+- **14-политика**: article; **15-доставка**: delivery; **16-возврат**: returns
 
 ### План — остальные страницы прототипа (`velour-marketplace-app/prototype-pages/`)
 | № | Страница | Решение |
@@ -155,3 +173,12 @@ GET/POST без параметров → список зарегистриров
 - Урок: jsDelivr отдаёт новый тег с задержкой (секунды—минуты): gen-preview должен проверять применение CSS (getComputedStyle paddingTop) и перезагружать страницу до N раз перед скриншотом, иначе плитка снимется голой.
 - Урок: неудачные регистрации (CONTENT_IS_BAD) тоже расходуют id репозитория — ids 4,6,8,10 потеряны, это нормально.
 - Плитки: products 1280x746, story 1280x911, footer 1280x332 (jpeg q82, обрезка по блоку).
+
+## 35. Пакетная сборка: все блоки всех страниц (итог сессии 23.08)
+- Зарегистрированы за один прогон `build-register-batch.js --register` (12 шт., repo ids 13–35, тег v0.27): pcard, related, abhero, abstory, values, craft, contacts, mapimg, delivery, returns, faq, article.
+- E2E: временная страница lid=85 со всеми 12 блоками → публикация → CDP-проверка (`verify-batch.js`): все секции на месте, 11 img без битых, FAQ-аккордеон раскрывается (max-height 0→500px), клик по миниатюре меняет главное фото. Страница удалена.
+- Урок: санитайзер режет `<form>/<input>/<textarea>` в CONTENT — форма контактов заменена карточкой «Персональный сервис» с кнопкой mailto; для приёма заявок пользователю штатная CRM-форма Б24.
+- Урок: `landing.landing.addblock` требует НИЖНИЙ регистр `{lid, fields:{CODE}}`; `publication`/`getpublicurl`/`delete` тоже `{lid}`; метода `landing.landing.markdeleted` нет.
+- Урок: длинные пакетные команды PowerShell прерываются по таймауту обёртки — генератор превью сделан возобновляемым: второй аргумент = список кодов («... v0.26 "a,b,c"»), докатывает только недостающее.
+- Превью ×12 сняты одним скриптом `gen-preview-batch.js` (порт 9400+i, probe=getComputedStyle по каждому блоку, reveal .fade-in перед снимком).
+- Ассеты пакета: product-card-block.css/js, related-block.css, maison-common.js (общий fade-in observer), abhero/abstory/values/craft/contacts/mapimg/delivery/returns/faq/article css + faq-block.js.
