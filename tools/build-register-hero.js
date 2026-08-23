@@ -38,7 +38,12 @@ const payload = {
       '.landing-block-node-hero-btn': { name: 'Кнопка', type: 'link' }
     },
     style: {
-      block: { type: ['block-default'] }
+      block: { type: ['block-default'] },
+      nodes: {
+        '.landing-block-node-hero-label': { title: 'Надзаголовок', type: ['typo'] },
+        '.landing-block-node-hero-title': { title: 'Заголовок', type: ['typo', 'animation'] },
+        '.landing-block-node-hero-btn': { title: 'Кнопка', type: ['typo-link', 'background-color'] }
+      }
     },
     assets: {
       css: [CDN + '/hero-block.css']
