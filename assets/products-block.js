@@ -28,8 +28,6 @@
     return e;
   }
 
-  var HEART = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.9-10-9.5C.6 8.6 2.3 5 5.7 5c2 0 3.4 1.1 4.3 2.6h4c.9-1.5 2.3-2.6 4.3-2.6 3.4 0 5.1 3.6 3.7 6.5C19.5 16.1 12 21 12 21z" transform="scale(.92) translate(1 .5)"/></svg>';
-
   function buildCard(data) {
     var a = el('a', 'vl-prod-card landing-block-card-prod landing-block-node-prod-link fade-in visible');
     a.href = data.url;
@@ -46,7 +44,6 @@
     wish.setAttribute('role', 'button');
     wish.setAttribute('aria-label', 'В избранное');
     wish.title = 'В избранное';
-    wish.innerHTML = HEART;
     wish.addEventListener('click', function (ev) { ev.preventDefault(); ev.stopPropagation(); wish.classList.toggle('active'); });
     media.appendChild(wish);
     var name = el('h3', 'vl-prod-name landing-block-node-prod-name');
