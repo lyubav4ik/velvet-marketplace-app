@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Блок 2 — С чем носить (похожие товары)</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#111111",
+                        "surface-bright": "#f9f9f9",
+                        "outline-variant": "#c4c7c7",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f9f9f9",
+                        "secondary": "#5f5e5d",
+                        "on-surface": "#1a1c1c"
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                    spacing: { "unit": "8px", "container-max": "1440px", "gutter": "24px", "margin-mobile": "16px", "margin-desktop": "64px" },
+                    fontFamily: {
+                        "display-lg": ["Playfair Display"],
+                        "headline-sm": ["Playfair Display"],
+                        "body-md": ["Montserrat"]
+                    },
+                    fontSize: {
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-sm": ["24px", { "lineHeight": "1.4", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased">
+<main class="pb-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Related Products Section -->
+<section class="border-t border-outline-variant/20 pt-20">
+<h2 class="font-headline-sm text-headline-sm text-primary mb-10 text-center">С чем носить</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<a class="group block" href="#">
+<div class="aspect-[3/4] bg-surface-container-lowest mb-4 overflow-hidden relative">
+<img alt="Кожаные босоножки" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuDOQNtEBA5MHwlC8x2vf5_6mdx0XsUqzCzpPTL6Bc2lrYBh-fBKZYXiksv1KGh6trHbfmgL2xMrEZ69nw7QAfJY_FC1bnsECbpdM23BaCHJg2FkfI3ZXyPPsoCBMTYpgTueH5IFD-vsif-xQa8sefnyrYIa94d6_LOFiYiIfx2LnrzP0jQTajyfQ_DadsvUPvYuGxCzlKT1H_UGPjvHfv0iEvF7DDAvsj8ToDGLIjKwm5N-54Z805=s1200"/>
+</div>
+<div class="flex flex-col items-center text-center">
+<h3 class="font-display-lg text-[16px] text-primary mb-1">Кожаные босоножки</h3>
+<p class="font-body-md text-body-md text-secondary">45 000 ₽</p>
+</div>
+</a>
+<a class="group block" href="#">
+<div class="aspect-[3/4] bg-surface-container-lowest mb-4 overflow-hidden relative">
+<img alt="Кожаный клатч" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlRRmcMHDF-GD-e7kA5oCdE4-lESbbzrFBBu33HFTbLWNmSFo-CW67wwqPey3GothyTsImjApxmnN_h-4RoFFdY1cNyd8s4N8GtMQl_OURN5ApfxSd4o8pOBSuo1d9PdckAu1qFKkoG2TwW1yX5aPQRKn4fne4eBBvX-wNNwKMXbGMk2S-ZF8uGnYZCZCasIAokejumwAbg8opnvnx6ZnlZFD4ucfasoUzvTrkJzH8MXbVH20nP80M=s1200"/>
+</div>
+<div class="flex flex-col items-center text-center">
+<h3 class="font-display-lg text-[16px] text-primary mb-1">Кожаный клатч</h3>
+<p class="font-body-md text-body-md text-secondary">82 000 ₽</p>
+</div>
+</a>
+<a class="group block hidden md:block" href="#">
+<div class="aspect-[3/4] bg-surface-container-lowest mb-4 overflow-hidden relative">
+<img alt="Подвеска с жемчугом" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGFqdunhcPoL-5lsA4ZVuD56g0P-hbNGdjJArnuvuystSupwNzPbQvHY6cXdi2x4JxPizBEwIinPp2hzCxLzTGM4iCG8NsN1NOza-SKvqV4ItDqrtx7m-5hL6Ihl72SK9FQ9TbUdm4yTt0YC_YHunazcZIq3mzgIEl6U-l46UyfbomjSBAID8KOeGdgoF8iOMn1I98zT0-C8ILzZqsZ50F7bX87Lpq4Gl2K_q2Tc9r2CC4cfzhjDmF=s1200"/>
+</div>
+<div class="flex flex-col items-center text-center">
+<h3 class="font-display-lg text-[16px] text-primary mb-1">Подвеска с жемчугом</h3>
+<p class="font-body-md text-body-md text-secondary">38 000 ₽</p>
+</div>
+</a>
+</div>
+</section>
+</main>
+</body></html>
