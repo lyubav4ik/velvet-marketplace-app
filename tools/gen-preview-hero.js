@@ -46,10 +46,14 @@ function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
   await sleep(3000);
 
   const check = await evaljs(`(()=>{const s=document.querySelector('.vl-hero');const img=document.querySelector('.vl-hero-img');
-    return {heroH:s?Math.round(s.getBoundingClientRect().height):-1,imgLoaded:img?img.naturalWidth>0:false,titleFs:getComputedStyle(document.querySelector('.vl-hero-title')).fontSize};})()`);
+    const r=s.getBoundingClientRect();
+    return {heroH:s?Math.round(r.height):-1,heroTop:Math.round(r.top),imgLoaded:img?img.naturalWidth>0:false,titleFs:getComputedStyle(document.querySelector('.vl-hero-title')).fontSize};})()`);
   console.log('render:', JSON.stringify(check));
 
-  const shot = await send('Page.captureScreenshot', { format: 'jpeg', quality: 82 });
+  const shot = await send('Page.captureScreenshot', {
+    format: 'jpeg', quality: 82,
+    clip: { x: 0, y: check.heroTop || 0, width: 1280, height: check.heroH || 800, scale: 1 }
+  });
   fs.writeFileSync(OUT, Buffer.from(shot.result.data, 'base64'));
   console.log('saved:', OUT, fs.statSync(OUT).size, 'bytes');
   ws.close(); proc.kill();

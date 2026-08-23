@@ -1,6 +1,6 @@
-const fs = require('fs');
+﻿const fs = require('fs');
 
-const CDN = 'https://cdn.jsdelivr.net/gh/lyubav4ik/velvet-marketplace-app@v0.13/assets';
+const CDN = 'https://cdn.jsdelivr.net/gh/lyubav4ik/velvet-marketplace-app@v0.14/assets';
 
 const HTML = `<section class="landing-block vl-hero">
 <img class="vl-hero-img landing-block-node-hero-img" src="${CDN}/hero-default.jpg" alt="Новая коллекция MAISON">
