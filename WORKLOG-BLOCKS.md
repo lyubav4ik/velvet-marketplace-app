@@ -182,3 +182,17 @@ GET/POST без параметров → список зарегистриров
 - Урок: длинные пакетные команды PowerShell прерываются по таймауту обёртки — генератор превью сделан возобновляемым: второй аргумент = список кодов («... v0.26 "a,b,c"»), докатывает только недостающее.
 - Превью ×12 сняты одним скриптом `gen-preview-batch.js` (порт 9400+i, probe=getComputedStyle по каждому блоку, reveal .fade-in перед снимком).
 - Ассеты пакета: product-card-block.css/js, related-block.css, maison-common.js (общий fade-in observer), abhero/abstory/values/craft/contacts/mapimg/delivery/returns/faq/article css + faq-block.js.
+
+## 36. Страница «Контакты» собрана + синк в velour (23.08)
+### Контакты на velvet
+- `/kontakty/` (lid=23) пересобрана: repo_2 шапка → repo_25 контакты → штатная форма `33.13.form_2_light_no_text` («Форма на светлом фоне по центру») → repo_27 карта → repo_11 футер. Опубликована, проверена по HTML.
+- Урок: справочник штатных блоков = `landing.block.getrepository` (НЕ repo.getrepository); формы живут в группе «CRM-форма» с кодами `33.*`. Формы можно добавлять через `addblock {fields:{CODE:'33.13.form_2_light_no_text'}}` как обычный блок.
+- Урок: `landing.block.getlist` возвращает объекты с полями в нижнем регистре (`id`, `code`) и параметром `params:{edit_mode:'Y'}`; удаление страницы целиком = `landing.landing.delete {lid}` (метода markdeleted нет).
+- E2E-страница lid=83 удалена окончательно.
+
+### Синхронизация в velour-marketplace-app
+- Цель: следующая сессия собирает приложение одной командой. Скрипт конвейера: `velour-marketplace-app/app/tools/sync-from-velvet.js`.
+- Что сделано: 72 ассета скопированы в `app/assets/`; 17 блоков обновлено + создан vl-craft; реестр `_registry.json` = 45 кодов; все URLs переписаны на `https://app-de233865f028.vibecode.bitrix24.tech/assets/*`; возврат разделён на vl-returns-cards + vl-returns-timeline; политика = копия статьи.
+- `deploy-v3.js` пропатчен: динамическое удаление страниц сайта 2633 (вместо зашитого списка id); fallback на прямой CODE для штатных блоков; contacts теперь со штатной формой; about включает vl-craft; privacy без отдельного заголовка.
+- Документация для новой сессии обновлена: `_session/VELOUR-SESSION-BRIEF.md` + `_session/PROMPT-NEW-SESSION.md` (два поколения блоков, источник правды = blocks/*.json, defs-* устарели для 18 кодов).
+- Уроки: у старых пейлоадов другие теги CDN (v0.17–v0.24) — замену URL делать регэкспом `@v[^/]+/` c нормализацией `/assets/assets/`→`/assets/`; манифест после замены строкой обязательно парсить обратно в объект.
